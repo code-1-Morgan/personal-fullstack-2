@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>Wishlist</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+      <div id="addEventDiv" class="col-sm-12">
+        <h2>Add your wishlist!</h2>
+        <label for="username">Your wish list should include a low budget item ($0-$20), a middle budget item ($20-$40), and a high budget item ($40+)</label>
+          <form action="/messages" method="POST">
+            <input type="text" placeholder="Name" name="username">
+            <input type="text" placeholder="Low Budget Item" name="lowBudget">
+            <input type="text" placeholder="Middle Budget Item" name="midBudget">
+            <input type="text" placeholder="High Budget Item" name="highBudget">
+    
+            <button class="subBtn" type="submit">Submit</button>
+          </form>
+        </div>
+        <!-- LOCAL INFORMATION -->
+        <!-- <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+
+            </div>
+        </div> -->
+        <div id=messageDiv class="col-sm">
+          <!-- <h3>Messages</h3> -->
+          <ul class="messages">
+          <% for(var i=0; i<messages.length; i++) {%>
+            <li class="message col-sm-3">
+              <h6><%= messages[i].username %></h6>
+              <h5><%= messages[i].lowBudget %></h5>
+              <h5><%= messages[i].midBudget %></h5>
+              <h5><%= messages[i].highBudget %></h5>
+              <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+              <!-- <span><%= messages[i].thumbUp %> </span> -->
+              <!-- <span><i class="fa fa-heart" aria-hidden="true"></i></span> -->
+            </li>
+          <% } %>
+          </ul>
+
+
+        <!-- <% if (user.local.email) { %> -->
+
+        </div>
+        <!-- <% } %> -->
+    </div>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
